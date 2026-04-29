@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: transparent;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#notification-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+    max-width: 360px;
+}
+
+#notification-container.top-right {
+    top: 20px;
+    right: 20px;
+}
+
+#notification-container.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+#notification-container.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+#notification-container.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.notification {
+    padding: 14px 20px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    animation: slideIn 0.35s ease forwards;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    border-left: 4px solid transparent;
+}
+
+.notification.removing {
+    animation: slideOut 0.3s ease forwards;
+}
+
+.notification .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 0 0 8px 8px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+}

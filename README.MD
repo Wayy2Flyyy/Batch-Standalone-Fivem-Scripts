@@ -1,62 +1,54 @@
 # Danielilli Scripts
 
-Danielilli Scripts is a starter repository for lightweight standalone Python
-scripts that can be packaged, tested, and deployed consistently.
+A collection of modern, standalone FiveM scripts with clean UIs. Easy to install, fully configurable, zero dependencies.
 
-## What is included
+## Scripts Included
 
-- Structured Python package under `src/`
-- CLI entrypoint (`danielilli-scripts`)
-- Automated tests with `pytest`
-- GitHub Actions CI workflow
-- Docker image build/run support
+| Script | Description |
+|--------|-------------|
+| **dani-hud** | Player HUD showing health, armor, and stamina with a modern, minimal design |
+| **dani-notify** | Notification system with animated toast-style popups (success, error, info, warning) |
+| **dani-speedometer** | Vehicle speedometer with gear indicator and fuel gauge |
+| **dani-commands** | Utility commands for players and admins (teleport, heal, announce, etc.) |
+| **dani-welcome** | Animated welcome screen displayed when a player joins the server |
+| **dani-peacetime** | Peacetime and priority cooldown toggle system for RP servers |
 
-## Quickstart
+## Installation
 
-### 1) Create and activate a virtual environment
+1. Download or clone this repository.
+2. Copy the script folders you want into your server's `resources` directory.
+3. Add each script to your `server.cfg`:
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
+```cfg
+ensure dani-hud
+ensure dani-notify
+ensure dani-speedometer
+ensure dani-commands
+ensure dani-welcome
+ensure dani-peacetime
 ```
 
-### 2) Install in editable mode with development tools
+4. Restart your server.
 
-```bash
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-```
+## Configuration
 
-### 3) Run the CLI
+Each script has a `config.lua` file at its root. Open it to customize colors, keybinds, permissions, messages, and more. Every option is documented with comments.
 
-```bash
-danielilli-scripts --name "Team"
-```
+## Requirements
 
-### 4) Run tests
+- FiveM server (latest recommended build)
+- No external dependencies required — all scripts are fully standalone
 
-```bash
-pytest
-```
+## Compatibility
 
-## Docker
+- Works with any framework (ESX, QBCore, vRP) or no framework at all
+- No database required
+- No exports from other resources needed
 
-Build image:
+## Contributing
 
-```bash
-docker build -t danielilli-scripts:latest .
-```
+Feel free to fork, modify, and submit pull requests. Contributions are welcome.
 
-Run container:
+## License
 
-```bash
-docker run --rm danielilli-scripts:latest --name "Team"
-```
-
-## Deployment readiness checklist
-
-- [x] Source package and entrypoint
-- [x] Dependency manifest (`pyproject.toml`)
-- [x] Test suite
-- [x] CI automation
-- [x] Containerization support
+These scripts are free to use and modify for your FiveM server. Please credit **Danielilli** if you redistribute.
