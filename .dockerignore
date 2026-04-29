@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+
+# Dev dependencies & local config
+node_modules
+.env
+coverage
+
+# Editor / OS
+.DS_Store
+*.swp
+.vscode
+.idea
+
+# Test files
+tests
+jest.config.*
+
+# Docs
+README.MD
+*.md
