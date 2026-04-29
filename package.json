@@ -1,0 +1,13 @@
+{
+  "name": "batch-standalone-fivem-scripts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone FiveM scripts and deployment validation for Danielilli Scripts.",
+  "scripts": {
+    "test": "npm run validate",
+    "validate": "node scripts/validate-resource.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
