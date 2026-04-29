@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=80.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "danielilli-scripts"
+version = "0.1.0"
+description = "Lightweight standalone Python scripts with deployment-ready tooling."
+readme = "README.MD"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Danielilli" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "ruff>=0.11.0",
+]
+
+[project.scripts]
+danielilli-scripts = "danielilli_scripts.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
