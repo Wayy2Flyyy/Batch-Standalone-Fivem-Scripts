@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Danielilli Scripts is a lightweight starter for shipping a modern visual UI."
+    />
+    <title>Danielilli Scripts</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script defer src="/app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero">
+        <p class="eyebrow">Deployment-ready UI starter</p>
+        <h1>Ship a clean visual UI without the empty-repo guesswork.</h1>
+        <p class="hero-copy">
+          This repository started as a placeholder. It now includes a responsive
+          landing page, a health endpoint, smoke tests, Docker support, and CI so
+          you can start deploying instead of scaffolding from scratch.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#readiness">Deployment checklist</a>
+          <a class="button button-secondary" href="/healthz">Open /healthz</a>
+        </div>
+      </section>
+
+      <section class="status-grid" id="readiness" aria-label="Deployment readiness">
+        <article class="status-card">
+          <span class="status-label">Server</span>
+          <strong>Healthy by default</strong>
+          <p>GET <code>/healthz</code> returns JSON suitable for uptime and readiness probes.</p>
+        </article>
+        <article class="status-card">
+          <span class="status-label">Frontend</span>
+          <strong>Static assets included</strong>
+          <p>HTML, CSS, and client-side JavaScript are bundled in <code>public/</code>.</p>
+        </article>
+        <article class="status-card">
+          <span class="status-label">Delivery</span>
+          <strong>CI and Docker ready</strong>
+          <p>The included workflow and image definition give you a predictable deployment baseline.</p>
+        </article>
+      </section>
+
+      <section class="details">
+        <div class="detail-card">
+          <h2>Why this baseline exists</h2>
+          <p>
+            The original repository only contained a README stub, so this starter
+            fills in the missing code, dependency metadata, and deployment
+            primitives needed to get something live.
+          </p>
+        </div>
+        <div class="detail-card">
+          <h2>Operational defaults</h2>
+          <ul>
+            <li>Port is configurable with <code>PORT</code></li>
+            <li>Zero external runtime dependencies</li>
+            <li>Signals handled for clean shutdowns in containers</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Starter metrics">
+        <h2>Fast baseline</h2>
+        <div class="metric-grid" data-stats></div>
+      </section>
+
+      <footer class="footer">
+        <p>Ready for the next step: connect real product features and deploy.</p>
+      </footer>
+    </main>
+  </body>
+</html>
