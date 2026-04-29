@@ -1,0 +1,9 @@
+[
+  {
+    "id": "hello",
+    "name": "Hello",
+    "description": "A friendly example script that greets you and prints a short system summary.",
+    "file": "scripts/hello.sh",
+    "tags": ["bash", "example", "starter"]
+  }
+]
