@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Danielilli Scripts — a curated collection of modern, easy-to-install standalone scripts." />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>Danielilli Scripts</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c5cff'/%3E%3Ctext x='50%25' y='56%25' font-family='ui-sans-serif,system-ui' font-size='34' font-weight='800' text-anchor='middle' fill='white'%3ED%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="bg-gradient" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top">
+      <span class="brand-mark">D</span>
+      <span class="brand-name">Danielilli<span class="brand-accent">Scripts</span></span>
+    </a>
+    <nav class="site-nav">
+      <a href="#catalog">Catalog</a>
+      <a href="#install">Install</a>
+      <a href="https://github.com/" rel="noopener" target="_blank">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <span class="eyebrow">Standalone scripts, beautifully delivered</span>
+      <h1>Modern scripts.<br /><span class="grad-text">One command away.</span></h1>
+      <p class="lede">
+        A curated collection of unique, easy-to-install standalone scripts.
+        No dependencies to wrangle, no boilerplate — just pick one and run.
+      </p>
+      <div class="cta-row">
+        <a href="#catalog" class="btn btn-primary">Browse catalog</a>
+        <a href="#install" class="btn btn-ghost">How to install</a>
+      </div>
+    </section>
+
+    <section id="catalog" class="catalog">
+      <div class="section-head">
+        <h2>Catalog</h2>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search scripts…"
+          aria-label="Search scripts"
+        />
+      </div>
+      <div id="cards" class="cards" aria-live="polite">
+        <div class="loading">Loading scripts…</div>
+      </div>
+      <p id="empty" class="empty" hidden>No scripts match your search.</p>
+    </section>
+
+    <section id="install" class="install">
+      <h2>Install in one line</h2>
+      <p>Each script is a single, self-contained file. Pipe it directly into a shell:</p>
+      <pre><code>curl -fsSL https://example.com/scripts/hello.sh | bash</code></pre>
+      <p class="muted">
+        Replace <code>example.com</code> with the domain you deploy this site to.
+        Always inspect a script before piping it into your shell.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> Danielilli</span>
+    <span class="dot">·</span>
+    <a href="./LICENSE">MIT License</a>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
