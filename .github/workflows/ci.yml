@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          shopt -s globstar nullglob
+          fail=0
+          for f in **/*.json; do
+            echo "Checking $f"
+            python3 -m json.tool "$f" > /dev/null || fail=1
+          done
+          exit $fail
+
+      - name: ShellCheck scripts
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: ./scripts
+
+      - name: HTML syntax check (tidy)
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y tidy
+          tidy -q -e -utf8 index.html || true
