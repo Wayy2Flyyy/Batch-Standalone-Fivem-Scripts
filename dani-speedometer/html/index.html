@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Dani Speedometer</title>
+</head>
+<body>
+    <div id="speedometer" class="hidden">
+        <div class="speed-display">
+            <span id="speed-value">0</span>
+            <span id="speed-unit">mph</span>
+        </div>
+        <div class="info-row">
+            <div class="info-item" id="gear-display">
+                <span class="info-label">GEAR</span>
+                <span class="info-value" id="gear-value">N</span>
+            </div>
+            <div class="info-item" id="rpm-display">
+                <span class="info-label">RPM</span>
+                <div class="mini-bar-track">
+                    <div class="mini-bar-fill" id="rpm-bar"></div>
+                </div>
+            </div>
+            <div class="info-item" id="fuel-display">
+                <span class="info-label">FUEL</span>
+                <div class="mini-bar-track">
+                    <div class="mini-bar-fill" id="fuel-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
