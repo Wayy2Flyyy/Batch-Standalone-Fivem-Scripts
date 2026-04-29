@@ -1,54 +1,82 @@
 # Danielilli Scripts
 
-A collection of modern, standalone FiveM scripts with clean UIs. Easy to install, fully configurable, zero dependencies.
+Minimal deployment-ready starter for a standalone scripts landing page and API.
 
-## Scripts Included
+## What is included
 
-| Script | Description |
-|--------|-------------|
-| **dani-hud** | Player HUD showing health, armor, and stamina with a modern, minimal design |
-| **dani-notify** | Notification system with animated toast-style popups (success, error, info, warning) |
-| **dani-speedometer** | Vehicle speedometer with gear indicator and fuel gauge |
-| **dani-commands** | Utility commands for players and admins (teleport, heal, announce, etc.) |
-| **dani-welcome** | Animated welcome screen displayed when a player joins the server |
-| **dani-peacetime** | Peacetime and priority cooldown toggle system for RP servers |
-
-## Installation
-
-1. Download or clone this repository.
-2. Copy the script folders you want into your server's `resources` directory.
-3. Add each script to your `server.cfg`:
-
-```cfg
-ensure dani-hud
-ensure dani-notify
-ensure dani-speedometer
-ensure dani-commands
-ensure dani-welcome
-ensure dani-peacetime
-```
-
-4. Restart your server.
-
-## Configuration
-
-Each script has a `config.lua` file at its root. Open it to customize colors, keybinds, permissions, messages, and more. Every option is documented with comments.
+- Express server with configurable `PORT`
+- Static landing page served from `public/`
+- Health endpoint at `/health`
+- Docker support
+- GitHub Actions CI for install and test
+- Example environment configuration
 
 ## Requirements
 
-- FiveM server (latest recommended build)
-- No external dependencies required — all scripts are fully standalone
+- Node.js 22+
+- npm 10+
 
-## Compatibility
+## Local development
 
-- Works with any framework (ESX, QBCore, vRP) or no framework at all
-- No database required
-- No exports from other resources needed
+```bash
+npm install
+npm run dev
+```
 
-## Contributing
+Open `http://localhost:3000`.
 
-Feel free to fork, modify, and submit pull requests. Contributions are welcome.
+## Production run
 
-## License
+```bash
+npm install
+npm start
+```
 
-These scripts are free to use and modify for your FiveM server. Please credit **Danielilli** if you redistribute.
+## Environment variables
+
+Copy `.env.example` and adapt as needed.
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `PORT` | `3000` | HTTP port used by the server |
+| `APP_NAME` | `Danielilli Scripts` | Name shown in the health response and UI |
+
+## Endpoints
+
+- `GET /` - static landing page
+- `GET /health` - JSON readiness endpoint
+
+Example response:
+
+```json
+{
+  "status": "ok",
+  "service": "danielilli-scripts",
+  "timestamp": "2026-04-29T09:12:00.000Z"
+}
+```
+
+## Docker
+
+```bash
+docker build -t danielilli-scripts .
+docker run -p 3000:3000 --env-file .env.example danielilli-scripts
+```
+
+## Testing
+
+```bash
+npm test
+```
+
+## Deployment readiness status
+
+The original repository only contained a placeholder README. This starter now provides:
+
+- a dependency manifest and lockfile
+- a runnable service
+- a smoke test
+- CI configuration
+- a container image definition
+
+This is a solid baseline for deployment, but real product-specific script features still need to be implemented on top of it.

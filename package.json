@@ -1,0 +1,34 @@
+{
+  "name": "danielilli-scripts",
+  "version": "0.1.0",
+  "description": "Minimal deployment-ready starter for Danielilli Scripts",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "ci": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wayy2Flyyy/Batch-Standalone-Fivem-Scripts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wayy2Flyyy/Batch-Standalone-Fivem-Scripts/issues"
+  },
+  "homepage": "https://github.com/Wayy2Flyyy/Batch-Standalone-Fivem-Scripts#readme",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2"
+  }
+}

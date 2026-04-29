@@ -1,13 +1,3 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# FiveM cache
-cache/
+node_modules/
+.env
+coverage/

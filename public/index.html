@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danielilli Scripts</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #07111f;
+        --panel: rgba(17, 24, 39, 0.9);
+        --accent: #38bdf8;
+        --text: #e5eefb;
+        --muted: #9fb2cb;
+        --ok: #22c55e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top, rgba(56, 189, 248, 0.2), transparent 35%),
+          linear-gradient(180deg, #020617 0%, var(--bg) 100%);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      main {
+        width: min(780px, 100%);
+        background: var(--panel);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 24px 60px rgba(2, 6, 23, 0.5);
+      }
+
+      .eyebrow {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.82rem;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.05;
+      }
+
+      p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.6;
+        max-width: 60ch;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(15, 23, 42, 0.75);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 999px;
+        padding: 10px 16px;
+        margin: 10px 0 24px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--ok);
+        box-shadow: 0 0 16px rgba(34, 197, 94, 0.8);
+      }
+
+      code {
+        display: block;
+        background: rgba(2, 6, 23, 0.85);
+        border-radius: 12px;
+        padding: 16px;
+        overflow-x: auto;
+        color: #bae6fd;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">Deployment-ready starter</div>
+      <h1>Danielilli Scripts</h1>
+      <p>
+        This repository now includes a minimal production-ready Node service,
+        a health endpoint, CI, Docker support, and environment documentation so
+        it can be deployed and iterated on instead of remaining an empty shell.
+      </p>
+      <div class="status">
+        <span class="dot"></span>
+        <strong>Service online</strong>
+      </div>
+      <p>Health check endpoint:</p>
+      <code>GET /health</code>
+    </main>
+  </body>
+</html>

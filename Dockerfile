@@ -1,14 +1,14 @@
-FROM python:3.12-slim
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+FROM node:22-alpine AS base
 
 WORKDIR /app
 
-COPY pyproject.toml README.MD ./
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+COPY public ./public
 COPY src ./src
 
-RUN python -m pip install --upgrade pip && \
-    pip install .
+ENV NODE_ENV=production
+EXPOSE 3000
 
-ENTRYPOINT ["danielilli-scripts"]
+CMD ["npm", "start"]
