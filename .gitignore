@@ -1,13 +1,5 @@
-# OS
+node_modules/
 .DS_Store
-Thumbs.db
-
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# FiveM cache
-cache/
+.env
+coverage/
+npm-debug.log*

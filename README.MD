@@ -1,54 +1,82 @@
 # Danielilli Scripts
 
-A collection of modern, standalone FiveM scripts with clean UIs. Easy to install, fully configurable, zero dependencies.
+Danielilli Scripts is now a lightweight, deployment-ready starter for a modern
+visual UI backed by a small Node.js server.
 
-## Scripts Included
+## What is included
 
-| Script | Description |
-|--------|-------------|
-| **dani-hud** | Player HUD showing health, armor, and stamina with a modern, minimal design |
-| **dani-notify** | Notification system with animated toast-style popups (success, error, info, warning) |
-| **dani-speedometer** | Vehicle speedometer with gear indicator and fuel gauge |
-| **dani-commands** | Utility commands for players and admins (teleport, heal, announce, etc.) |
-| **dani-welcome** | Animated welcome screen displayed when a player joins the server |
-| **dani-peacetime** | Peacetime and priority cooldown toggle system for RP servers |
+- Responsive landing page in `public/`
+- Node HTTP server with static asset delivery
+- `/healthz` endpoint for health checks and container platforms
+- Docker support for straightforward container deployment
+- CI workflow that runs the smoke tests on every push and pull request
+- No external runtime dependencies
 
-## Installation
+## Project structure
 
-1. Download or clone this repository.
-2. Copy the script folders you want into your server's `resources` directory.
-3. Add each script to your `server.cfg`:
-
-```cfg
-ensure dani-hud
-ensure dani-notify
-ensure dani-speedometer
-ensure dani-commands
-ensure dani-welcome
-ensure dani-peacetime
+```text
+.
+├── .github/workflows/ci.yml
+├── public/
+│   ├── app.js
+│   ├── index.html
+│   └── styles.css
+├── test/server.test.js
+├── .dockerignore
+├── .env.example
+├── .gitignore
+├── Dockerfile
+├── package-lock.json
+├── package.json
+├── README.MD
+└── server.js
 ```
 
-4. Restart your server.
+## Local development
 
-## Configuration
+### Requirements
 
-Each script has a `config.lua` file at its root. Open it to customize colors, keybinds, permissions, messages, and more. Every option is documented with comments.
+- Node.js 22 or newer
 
-## Requirements
+### Start in watch mode
 
-- FiveM server (latest recommended build)
-- No external dependencies required — all scripts are fully standalone
+```bash
+npm run dev
+```
 
-## Compatibility
+### Start normally
 
-- Works with any framework (ESX, QBCore, vRP) or no framework at all
-- No database required
-- No exports from other resources needed
+```bash
+npm start
+```
 
-## Contributing
+The app listens on `PORT`, which defaults to `3000`.
 
-Feel free to fork, modify, and submit pull requests. Contributions are welcome.
+## Tests
 
-## License
+Run the smoke tests with:
 
-These scripts are free to use and modify for your FiveM server. Please credit **Danielilli** if you redistribute.
+```bash
+npm test
+```
+
+## Docker
+
+Build the image:
+
+```bash
+docker build -t danielilli-scripts .
+```
+
+Run the container:
+
+```bash
+docker run --rm -p 3000:3000 danielilli-scripts
+```
+
+## Deployment notes
+
+- Set `PORT` through your platform if it is assigned dynamically.
+- Use `/healthz` for uptime and readiness probes.
+- Static assets are served directly by the Node process, which keeps the
+  deployment footprint small.

@@ -1,14 +1,14 @@
-FROM python:3.12-slim
-
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+FROM node:22-alpine
 
 WORKDIR /app
 
-COPY pyproject.toml README.MD ./
-COPY src ./src
+COPY package.json ./
+COPY server.js ./
+COPY public ./public
 
-RUN python -m pip install --upgrade pip && \
-    pip install .
+ENV NODE_ENV=production
+ENV PORT=3000
 
-ENTRYPOINT ["danielilli-scripts"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
